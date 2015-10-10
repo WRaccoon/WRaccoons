@@ -1,0 +1,27 @@
+group 'com.ws.raccoon'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'scala'
+
+sourceCompatibility = 1.8
+
+ext {
+    scalaVersion = "2.11.7"
+    sprayVersion = "1.3.1"
+    akkaVersion = "2.4.0"
+
+    junitVersion = "4.11"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:${scalaVersion}"
+    compile "io.spray:spray-client:${sprayVersion}"
+    compile "com.typesafe.akka:akka-actor_2.11:${akkaVersion}"
+
+    testCompile group: 'junit', name: 'junit', version: "${junitVersion}"
+}
