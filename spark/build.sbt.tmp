@@ -1,0 +1,16 @@
+name := "raccoon-spark"
+
+version := "0.0.1"
+
+scalaVersion := "2.11.7"
+
+libraryDependencies ++= {
+  val scalazV = "7.1.2"
+  var sparkV = "1.5.1"
+  Seq(
+    "org.scalaz" %% "scalaz-core" % scalazV,
+    "org.apache.spark" %% "spark-core" % sparkV % "provided"
+  )
+}
+
+//addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.5.0")
