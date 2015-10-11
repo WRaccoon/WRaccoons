@@ -1,4 +1,15 @@
-.gradle
+bin/
+project/boot
+project/project
+project/target
+project/plugins
+target/
 .idea
-build
+.cache
+.classpath
+.project
+.settings
+.history
+.gradle
+build/
 *.iml

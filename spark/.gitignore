@@ -10,3 +10,6 @@ target/
 .project
 .settings
 .history
+.gradle
+build/
+*.iml
