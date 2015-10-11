@@ -4,10 +4,10 @@ package com.ws.raccoon.services
  * Created by agdubrov on 10/10/15.
  */
 
-import java.io.{ ByteArrayInputStream, InputStream }
+import java.io.{ByteArrayInputStream, InputStream}
 
 import akka.io.IO
-import org.apache.commons.io.{ FileUtils, IOUtils }
+import org.apache.commons.io.{FileUtils, IOUtils}
 import spray.can.Http
 import spray.http._
 import spray.client.pipelining._
@@ -19,6 +19,7 @@ import scala.concurrent._
 import duration._
 import java.io.File
 import spray.util._
+
 
 object RequestService {
   implicit val system = ActorSystem();
@@ -32,13 +33,11 @@ object RequestService {
     var result: InputStream = null;
 
     response.onSuccess {
-      case httpResponse => httpResponse.status match {
-        case StatusCodes.OK => {
-          FileUtils.writeByteArrayToFile(new File("/tmp/test.html"), httpResponse.entity.data.toByteArray);
-          shutdown();
-        }
-        case _ => println("Failure");
+      case HttpResponse(StatusCodes.OK, entity, _, _) => {
+        FileUtils.writeByteArrayToFile(new File("/Work/test.html"), entity.data.toByteArray);
+        shutdown();
       }
+      case rsp: HttpResponse => println("Failure");
     };
 
     def shutdown(): Unit = {
