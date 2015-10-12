@@ -24,7 +24,8 @@ dependencies {
     compile "org.scala-lang:scala-library:${scalaVersion}"
     compile "io.spray:spray-client_2.11:${sprayVersion}"
     compile "com.typesafe.akka:akka-actor_2.11:${akkaVersion}"
-
+	compile "net.sourceforge.htmlunit:htmlunit:2.18"
+	
     compile "commons-io:commons-io:${apacheCommonIOVersion}"
 
     testCompile group: 'junit', name: 'junit', version: "${junitVersion}"
